@@ -1,4 +1,4 @@
-import { LinkedList, MinimumStack, Stack } from "./main";
+import { CircularQueue, LinkedList, MinimumStack, Stack } from "./main";
 
 /// Examples
 
@@ -95,3 +95,27 @@ minStack.pop();
 console.log(minStack.getMinimum());
 minStack.pop();
 console.log(minStack.getMinimum());
+
+console.log(`###########################
+#########CircularQueue##
+###########################
+`);
+
+const circularQ = new CircularQueue();
+circularQ.enqueue(1);
+circularQ.enqueue(2);
+circularQ.enqueue(3);
+circularQ.enqueue(4);
+circularQ.enqueue(5);
+console.log(circularQ.peek());
+
+console.log(circularQ.dequeue());
+console.log(circularQ.dequeue());
+console.log(circularQ.dequeue());
+console.log(circularQ.dequeue());
+console.log(circularQ.dequeue());
+circularQ.enqueue(6);
+circularQ.enqueue(7);
+console.log(circularQ.dequeue());
+console.log(circularQ.dequeue());
+console.log(circularQ.toString());

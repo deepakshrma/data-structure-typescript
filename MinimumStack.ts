@@ -1,4 +1,4 @@
-import { Stack } from "./main";
+import Stack from "./Stack";
 
 export default class MinimumStack<T extends any> {
   #minstatck: Stack<T> = new Stack<T>();

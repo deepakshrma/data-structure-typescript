@@ -7,7 +7,7 @@
     "build": "tsc",
     "start": "npm run clean && ts-node examples.ts",
     "test": "ts-node examples.ts",
-    "clean": "rm *.js"
+    "clean": "rm *.js || true"
   },
   "keywords": [],
   "author": "",
