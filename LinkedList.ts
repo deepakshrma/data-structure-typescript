@@ -1,10 +1,7 @@
-import Node from "./Node";
+import Node, { NullableNode } from "./Node";
 
-type NullableNode<T> = Node<T> | null;
-
-export class LinkList<T extends any> {
+export default class LinkedList<T extends any> {
   #head: NullableNode<T> = null;
-
   /**
    * size: get the size of link list
    *
@@ -40,14 +37,15 @@ export class LinkList<T extends any> {
    *
    */
   public addNode(data: T): void {
+    let nextNode = new Node(data);
     if (this.#head === null) {
-      this.#head = new Node(data);
+      this.#head = nextNode;
     } else {
       let node = this.#head;
       while (node.next !== null) {
         node = node.next;
       }
-      node.next = new Node(data);
+      node.next = nextNode;
     }
   }
   /**
@@ -79,17 +77,14 @@ export class LinkList<T extends any> {
       return false;
     }
   }
+  /**
+   * toString: prettify string
+   */
+  public toString() {
+    return `LinkedList<${typeof this.#head?.data}> {
+  head: ${this.#head}, 
+  isEmpty: ${this.isEmpty}, 
+  size: ${this.size}
+}`;
+  }
 }
-
-/// Examples
-const list = new LinkList<number>();
-list.addNode(10);
-list.addNode(20);
-list.addNode(30);
-console.log(list.size);
-console.log(`List has 10: ${list.hasElement(10)}`);
-console.log(list.popElement());
-console.log(`List has 10: ${list.hasElement(10)}`);
-console.log(list.size);
-console.log(list.popElement());
-console.log(list.size);

@@ -2,11 +2,30 @@
   "name": "data-structure",
   "version": "1.0.0",
   "description": "",
-  "main": "01-linklist.js",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "start": "ts-node main.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettify": "prettier src/**/*.js --write"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.(js|html|css|ts|tsx|jsx|md)": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.2",
+    "prettier": "^2.0.5"
+  }
 }
