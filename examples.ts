@@ -1,4 +1,11 @@
-import { CircularQueue, LinkedList, MinimumStack, Stack } from "./main";
+import {
+  CircularQueue,
+  LinkedList,
+  MinHeap,
+  MinimumStack,
+  QueueWithStack,
+  Stack,
+} from "./main";
 
 /// Examples
 
@@ -119,3 +126,39 @@ circularQ.enqueue(7);
 console.log(circularQ.dequeue());
 console.log(circularQ.dequeue());
 console.log(circularQ.toString());
+
+console.log(`###########################
+#########QueueWithStack##
+###########################
+`);
+
+const stackQ = new QueueWithStack<number>();
+
+stackQ.enqueue(1);
+stackQ.enqueue(2);
+stackQ.enqueue(3);
+
+console.log(stackQ.dequeue());
+console.log(stackQ.dequeue());
+stackQ.enqueue(4);
+console.log(stackQ.dequeue());
+console.log(stackQ.dequeue());
+
+console.log(`###########################
+#########MinHeap##
+###########################
+`);
+
+const minHeap = new MinHeap<number>();
+minHeap.insert(20);
+minHeap.insert(10);
+minHeap.insert(11);
+minHeap.insert(12);
+minHeap.insert(1);
+
+console.log(minHeap.removeHighestPriority());
+console.log(minHeap.removeHighestPriority());
+console.log(minHeap.removeHighestPriority());
+console.log(minHeap.count);
+minHeap.insert(9);
+console.log(minHeap.removeHighestPriority());

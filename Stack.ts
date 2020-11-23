@@ -39,13 +39,22 @@ export default class Stack<T extends any> {
     return this.#size === 0;
   }
   /**
+   * isEmpty: Check linklist is full or not
+   *
+   * complexity: O(1)
+   *
+   */
+  get isFull(): boolean {
+    return this.#size === Stack.MAX_SIZE;
+  }
+  /**
    * push: push a data to stack
    *
    * complexity: O(1)
    *
    */
   public push(data: T) {
-    if (this.#size >= Stack.MAX_SIZE) throw new StackOverflowException();
+    if (this.isFull) throw new StackOverflowException();
     const elm = new Node(data);
     elm.next = this.#top;
     this.#top = elm;
