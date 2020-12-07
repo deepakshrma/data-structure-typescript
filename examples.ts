@@ -1,6 +1,7 @@
 import {
   CircularQueue,
   LinkedList,
+  LRUCache,
   MinHeap,
   MinimumStack,
   QueueWithStack,
@@ -162,3 +163,22 @@ console.log(minHeap.removeHighestPriority());
 console.log(minHeap.count);
 minHeap.insert(9);
 console.log(minHeap.removeHighestPriority());
+
+console.log(`###########################
+#########LRUCache##
+###########################
+`);
+const cache = new LRUCache<number, number>(3);
+
+cache.put(1, 1);
+cache.put(2, 2);
+cache.put(3, 3);
+
+console.log(cache.get(1));
+console.log(cache.get(2));
+
+cache.put(4, 4);
+console.log(cache.get(3));
+console.log(cache.get(2));
+cache.put(3, 3);
+console.log(cache.get(1));

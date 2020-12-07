@@ -46,9 +46,8 @@ export default class Heap<T extends any> {
    */
 
   protected getLeftChildIndex(index: number) {
-    let rightChildindex = 2 * index + 1;
-    if (rightChildindex >= this.#count) return -1;
-    return rightChildindex;
+    let leftChildindex = 2 * index + 1;
+    return leftChildindex >= this.#count ? -1 : leftChildindex;
   }
   /**
    * getRightChildIndex: get the right child index
@@ -57,8 +56,7 @@ export default class Heap<T extends any> {
    */
   protected getRightChildIndex(index: number) {
     let rightChildindex = 2 * index + 2;
-    if (rightChildindex >= this.#count) return -1;
-    return rightChildindex;
+    return rightChildindex >= this.#count ? -1 : rightChildindex;
   }
   /**
    * getParentIndex: get the parent index
@@ -105,12 +103,11 @@ export default class Heap<T extends any> {
    * removeHighestPriority: remove the top element as highest priority
    */
   public removeHighestPriority(): T {
-    console.log(this.#elements);
-    let min = this.#elements[0];
+    let elm = this.#elements[0];
     this.#elements[0] = this.#elements[this.#count - 1];
     this.#count--;
     this.siftDown(0);
-    return min;
+    return elm;
   }
 }
 export class MinHeap<T extends any> extends Heap<T> {
