@@ -60,6 +60,10 @@ export default class LinkedList<T extends any> {
     this.#head = this.#head.next;
     return elm;
   }
+
+  public get head(): Node<T> | null {
+    return this.#head;
+  }
   /**
    * hasElement: check linklist contains
    *
